@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+
+  padding: 15px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #000000;
+
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e58517;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: rgb(255, 229, 180);
+
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: #d68101;
+}

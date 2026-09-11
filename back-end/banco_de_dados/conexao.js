@@ -17,9 +17,9 @@ async function testConnection() {
         await sequelize.authenticate();
         console.log('Conexão com o MySQL estabelecida com sucesso!');
     } catch (error) {
-        console.error('Erro ao conectar com o MySQL: ')
+        console.error('Erro ao conectar com o MySQL: ', error)
     }
 } 
 
 testConnection();
-module.export = sequelize;
+module.exports = sequelize;
