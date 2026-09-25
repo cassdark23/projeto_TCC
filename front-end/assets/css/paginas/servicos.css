@@ -1,0 +1,72 @@
+@import url("../global/reset.css");
+@import url("../componentes/botoes.css");
+@import url("../componentes/cabecalho.css");
+@import url("../componentes/footer.css");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to right, #4d2400, #211200); 
+  height: 100vh;
+  backdrop-filter: blur(15px); 
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.769); 
+  backdrop-filter: blur(15px); 
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0);
+}
+
+/* Modificado para suportar inputs do tipo 'number' da tela de serviço */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* Garante que o padding não quebre a largura do input number */
+}
+
+input:focus {
+  outline: none;
+  border-color: #fc7703;
+}
+
+/* Atualizado para aplicar o mesmo estilo visual ao select de status */
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura do input number */
+  }
+  
+input:focus, select:focus {
+    outline: none;
+    border-color: #fc7703;
+  }
+  

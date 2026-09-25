@@ -1,0 +1,98 @@
+@import url('../global/reset.css');
+@import url('../componentes/botoes.css');
+@import url('../componentes/cabecalho.css');
+@import url('../componentes/footer.css');
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, #4d2400, #211200); 
+    height: 100vh;
+    backdrop-filter: blur(15px);
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.769); 
+    backdrop-filter: blur(15px); 
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+}
+
+
+.card-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+
+label {
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0);
+}
+
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+input:focus {
+  outline: none;
+  border-color: #fc7703;
+}
+
+
+.btn-confirm {
+  margin-top: 10px;
+}
+
+
+.link {
+  text-align: center;
+  font-size: 14px;
+}
+
+
+.link a {
+  color: #6a5acd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+
+

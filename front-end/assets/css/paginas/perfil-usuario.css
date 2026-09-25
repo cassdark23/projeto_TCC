@@ -1,0 +1,85 @@
+@import url("../global/reset.css");
+@import url("../componentes/botoes.css");
+@import url("../componentes/cabecalho.css");
+@import url("../componentes/footer.css");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to right, #4d2400, #211200);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.769);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Agrupamento em duas colunas para Tipo e Status */
+.campo-grupo {
+  display: flex;
+  gap: 10px;
+}
+
+.campo-grupo .campo {
+  flex: 1;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #fc7703;
+}
+
+/* Estilo para campos não editáveis (CPF, Tipo, Status) */
+input:disabled {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #555;
+  border-color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Divisor sutil entre dados fixos e editáveis */
+.divisor {
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 5px 0;
+}

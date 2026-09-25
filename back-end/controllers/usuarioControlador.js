@@ -86,7 +86,7 @@ async function loginUsuario(req, res) {
       return res.status(400).json({ erro: "Não autenticado" });
     }
 
-    res.status(200).json(usuario);
+    res.status(200).json({usuario:usuario});
   } catch (erro) {
     res.status(500).json({ erro: erro.message });
   }

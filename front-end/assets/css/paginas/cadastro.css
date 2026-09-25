@@ -49,3 +49,8 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
+input:focus {
+  outline: none;
+  border-color: #fc7703;
+}

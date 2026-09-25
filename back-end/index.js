@@ -23,7 +23,7 @@ app.use("/api", servicoRotas);
 app.use("/api", profissionalRotas);
 app.use("/api", especialidadeRotas);
 app.use("/api", profissionalEspecialidadeRotas);
-app.use("/api", agendamentoRotas);
+app.use("/api", agendamentoRotas);             
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
