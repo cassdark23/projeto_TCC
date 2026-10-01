@@ -3,35 +3,49 @@
 @import url("../componentes/cabecalho.css");
 @import url("../componentes/footer.css");
 
+/* Importação da fonte moderna Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(to right, #4d2400, #211200); 
-  height: 100vh;
-  backdrop-filter: blur(15px); 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Fundo em gradiente escuro e moderno no tema FoxArena */
+  background: radial-gradient(circle at top center, #2a1810 0%, #0d0d0d 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #f5f5f5;
 }
 
+/* Contentor Centralizado com efeito Glassmorphism elegante */
 .container {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
-  background: rgba(255, 255, 255, 0.769); 
-  backdrop-filter: blur(15px); 
-  padding: 20px;
-  border: 1px solid #000000;
-  border-radius: 8px;
+  width: 90%;
+  max-width: 420px;
+  margin: 40px auto;
+  background: rgba(26, 26, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: rgb(0, 0, 0);
+  margin-bottom: 28px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
 .campo {
@@ -40,33 +54,44 @@ form {
 }
 
 label {
-  margin-bottom: 5px;
-  color: rgb(0, 0, 0);
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cccccc;
 }
 
-/* Modificado para suportar inputs do tipo 'number' da tela de serviço */
-input {
-  padding: 10px;
-  border: 1px solid #ccc;
+/* Estilização unificada para inputs e selects */
+input, select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  box-sizing: border-box; /* Garante que o padding não quebre a largura do input number */
+  font-size: 15px;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
 }
 
-input:focus {
+input::placeholder {
+  color: #777777;
+}
+
+/* Estilização específica das opções do select no Dark Mode */
+select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+input:focus, select:focus {
   outline: none;
   border-color: #fc7703;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(252, 119, 3, 0.2);
 }
 
-/* Atualizado para aplicar o mesmo estilo visual ao select de status */
-input, select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box; /* Garante que o padding não quebre a largura do input number */
-  }
-  
-input:focus, select:focus {
-    outline: none;
-    border-color: #fc7703;
-  }
-  
+/* Remove ou ajusta as setas em inputs do tipo number para um visual mais limpo */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.7;
+}

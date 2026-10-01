@@ -3,42 +3,53 @@
 @import url("../componentes/cabecalho.css");
 @import url("../componentes/footer.css");
 
+/* Importação da fonte moderna Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(to right, #4d2400, #211200);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Fundo em gradiente escuro e moderno no tema FoxArena */
+  background: radial-gradient(circle at top center, #2a1810 0%, #0d0d0d 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  color: #f5f5f5;
 }
 
+/* Contentor principal centralizado com efeito Glassmorphism */
 .container {
-  width: 100%;
-  max-width: 450px;
+  width: 90%;
+  max-width: 480px; /* Ligeiramente mais largo para acomodar o agrupamento de campos */
   margin: 40px auto;
-  background: rgba(255, 255, 255, 0.769);
-  backdrop-filter: blur(15px);
-  padding: 20px;
-  border: 1px solid #000000;
-  border-radius: 8px;
+  background: rgba(26, 26, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: rgb(0, 0, 0);
+  margin-bottom: 28px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
 /* Agrupamento em duas colunas para Tipo e Status */
 .campo-grupo {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .campo-grupo .campo {
@@ -51,35 +62,51 @@ form {
 }
 
 label {
-  margin-bottom: 5px;
-  color: rgb(0, 0, 0);
+  margin-bottom: 8px;
   font-size: 14px;
+  font-weight: 500;
+  color: #cccccc;
 }
 
 input {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+input::placeholder {
+  color: #777777;
 }
 
 input:focus {
   outline: none;
   border-color: #fc7703;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(252, 119, 3, 0.2);
 }
 
 /* Estilo para campos não editáveis (CPF, Tipo, Status) */
 input:disabled {
-  background-color: rgba(0, 0, 0, 0.08);
-  color: #555;
-  border-color: #bbb;
+  background-color: rgba(255, 255, 255, 0.02);
+  color: #888888;
+  border-color: rgba(255, 255, 255, 0.05);
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
-/* Divisor sutil entre dados fixos e editáveis */
+/* Divisor subtil entre dados fixos e editáveis */
 .divisor {
   border: 0;
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  margin: 5px 0;
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba(255, 255, 255, 0.15), 
+    transparent
+  );
+  margin: 8px 0;
 }
