@@ -4,24 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Cadastro de Serviço</title>
+    <title>Gerenciar Serviços - FoxArena</title>
     <link rel="stylesheet" href="assets/css/paginas/servicos.css" />
   </head>
   <body>
     <header class="header">
-      <a href="index.html" class="logo"> FoxArena </a>
+      <a href="index.html" class="logo">FoxArena</a>
 
       <nav class="nav">
-        <a href="index.html">Página Inicial</a>
-        <a href="login.html">Login</a>
-        <a href="cadastro.html">Cadastro</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="agendamentos-admin.html">Meus Agendamentos</a>
+        <a href="especialidade.html">Especialidades</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="profissionais.html">Profissionais</a>
+        <a href="perfil-usuario-admin.html">Meu Perfil</a>
+        <a href="#">Sair</a>
       </nav>
     </header>
-    <main class="container">
-      <section class="card-cadastro">
-        <h1>Cadastro de Serviço</h1>
 
-        <form>
+    <main class="container">
+      <!-- Lado Esquerdo: Formulário -->
+      <section class="card-cadastro">
+        <h1 id="titulo-form">Cadastro de Serviço</h1>
+
+        <form id="form-servico">
+          <input type="hidden" id="servico-id" value="" />
+
           <div class="campo">
             <label for="nome">Nome do Serviço</label>
             <input 
@@ -71,13 +79,44 @@
             </select>
           </div>
 
-          <button type="submit" class="btn-confirm">Cadastrar Serviço</button>
+          <div class="botoes-form">
+            <button type="submit" id="btn-salvar" class="btn-confirm">Cadastrar Serviço</button>
+            <button type="button" id="btn-cancelar" class="btn-cancelar" style="display: none;">Cancelar Edição</button>
+          </div>
         </form>
       </section>
+
+      <!-- Lado Direito: Listagem -->
+      <section class="card-lista">
+        <h2>Serviços Cadastrados</h2>
+        
+        <div class="tabela-wrapper">
+          <table class="tabela-servicos">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Capacidade</th>
+                <th>Valor/Hora</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="lista-servicos">
+              <tr>
+                <td colspan="6" class="mensagem-tabela">Carregando serviços...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
     </main>
+
     <footer class="footer">
       <p>© 2026 FoxArena - Sistema de Agendamento</p>
     </footer>
+
     <script type="module" src="./assets/js/paginas/servicos.js"></script>
   </body>
 </html>
