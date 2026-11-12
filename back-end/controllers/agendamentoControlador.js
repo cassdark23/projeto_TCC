@@ -1,8 +1,64 @@
-const Agendamento = require("../models/agendamento.js");
+const {
+  Agendamento,
+  Servico,
+  Usuario,
+  Profissional,
+} = require("../models/associacoes.js");
+
+const atributosAgendamento = [
+  "id_agendamento",
+  "data",
+  "hora_inicio",
+  "hora_fim",
+  "status",
+  "id_usuario",
+  "id_profissional",
+  "id_servico",
+];
+
+const incluirRelacoes = [
+  {
+    model: Servico,
+    as: "servico",
+    attributes: ["id_servico", "nome", "tipo", "valor_hora"],
+  },
+  {
+    model: Usuario,
+    as: "usuario",
+    attributes: ["id_usuario", "nome", "email"],
+  },
+  {
+    model: Profissional,
+    as: "profissional",
+    attributes: ["id_profissional", "id_usuario", "status"],
+    include: [
+      {
+        model: Usuario,
+        as: "usuario",
+        attributes: ["id_usuario", "nome"],
+      },
+    ],
+  },
+];
+
+const opcoesPadrao = {
+  attributes: atributosAgendamento,
+  include: incluirRelacoes,
+};
+
+const ordenacaoPadrao = [
+  ["data", "DESC"],
+  ["hora_inicio", "ASC"],
+];
+
+async function buscarCompleto(id) {
+  return Agendamento.findByPk(id, opcoesPadrao);
+}
 
 async function criarAgendamento(req, res) {
   try {
-    const agendamento = await Agendamento.create(req.body);
+    const criado = await Agendamento.create(req.body);
+    const agendamento = await buscarCompleto(criado.id_agendamento);
     res.status(201).json(agendamento);
   } catch (erro) {
     res.status(500).json({ erro: erro.message });
@@ -11,8 +67,11 @@ async function criarAgendamento(req, res) {
 
 async function consultarAgendamentos(req, res) {
   try {
-    const dados = await Agendamento.findAll();
-    res.json(dados);
+    const dados = await Agendamento.findAll({
+      ...opcoesPadrao,
+      order: ordenacaoPadrao,
+    });
+    res.status(200).json(dados);
   } catch (erro) {
     res.status(500).json({ erro: erro.message });
   }
@@ -20,11 +79,10 @@ async function consultarAgendamentos(req, res) {
 
 async function consultarAgendamentoPorId(req, res) {
   try {
-    const agendamento = await Agendamento.findByPk(req.params.id);
+    const agendamento = await buscarCompleto(req.params.id);
     if (!agendamento) {
       return res.status(404).json({ erro: "Agendamento não encontrado" });
     }
-
     res.status(200).json(agendamento);
   } catch (erro) {
     res.status(500).json({ erro: erro.message });
@@ -32,10 +90,11 @@ async function consultarAgendamentoPorId(req, res) {
 }
 
 async function consultarAgendamentosPorUsuario(req, res) {
-  const idUsuario = req.params.id_usuario;
   try {
     const dados = await Agendamento.findAll({
-      where: { id_usuario: idUsuario },
+      ...opcoesPadrao,
+      where: { id_usuario: req.params.id_usuario },
+      order: ordenacaoPadrao,
     });
     res.status(200).json(dados);
   } catch (erro) {
@@ -44,10 +103,11 @@ async function consultarAgendamentosPorUsuario(req, res) {
 }
 
 async function consultarAgendamentosPorProfissional(req, res) {
-  const idProfissional = req.params.id_profissional;
   try {
     const dados = await Agendamento.findAll({
-      where: { id_profissional: idProfissional },
+      ...opcoesPadrao,
+      where: { id_profissional: req.params.id_profissional },
+      order: ordenacaoPadrao,
     });
     res.status(200).json(dados);
   } catch (erro) {
@@ -63,7 +123,8 @@ async function editarAgendamento(req, res) {
     }
 
     await agendamento.update(req.body);
-    res.status(200).json(agendamento);
+    const atualizado = await buscarCompleto(req.params.id);
+    res.status(200).json(atualizado);
   } catch (erro) {
     res.status(500).json({ erro: erro.message });
   }
