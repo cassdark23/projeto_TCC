@@ -24,6 +24,8 @@ form.addEventListener("submit", async function (event) {
     localStorage.setItem("usuario", JSON.stringify(dados.usuario));
 
     alert("Login Feito!");
+
+    window.location.href = "index.html";
   } catch (erro) {
     console.log(erro);
     alert("Erro ao conectar com o servidor");

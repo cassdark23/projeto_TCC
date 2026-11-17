@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Início - FoxArena</title>
+
+    <link rel="stylesheet" href="assets/css/paginas/index.css" />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <a href="index.html" class="logo">PetShow</a>
+  
+        <nav class="nav">
+          <a href="index.html">Página Inicial</a>
+          <a href="perfil-usuario.html">Meu Perfil</a>
+          <a href="agendamento-usuario.html">Meus Agendamentos</a>
+          <a href="agendamento.html">Agendar Serviço</a>
+          <a id="btn-sair">Sair</a>
+        </nav>
+    </header>
+
+    <main class="container">
+      <!-- Saudação e ação principal -->
+      <section class="card-boas-vindas">
+        <h1 id="saudacao-usuario">Olá!</h1>
+
+        <p class="descricao">O que vamos agendar hoje?</p>
+
+        <a href="agendamento.html" class="btn-agendar">Agendar novo serviço</a>
+      </section>
+
+      <!-- Próximos agendamentos -->
+      <section class="card-agendamentos">
+        <div class="cabecalho-secao">
+          <h2>Próximos agendamentos</h2>
+          <a href="agendamentos-usuario.html" class="link-secao">Ver todos</a>
+        </div>
+
+        <p id="mensagem-proximos" class="mensagem-secao" role="status" aria-live="polite">
+          Carregando agendamentos...
+        </p>
+
+        <ul id="lista-proximos" class="lista-agendamentos" hidden></ul>
+      </section>
+
+      <!-- Agendamentos recentes -->
+      <section class="card-agendamentos">
+        <div class="cabecalho-secao">
+          <h2>Agendamentos recentes</h2>
+          <a href="agendamentos-usuario.html" class="link-secao">Ver todos</a>
+        </div>
+
+        <p id="mensagem-recentes" class="mensagem-secao" role="status" aria-live="polite">
+          Carregando histórico...
+        </p>
+
+        <ul id="lista-recentes" class="lista-agendamentos" hidden></ul>
+      </section>
+
+      <!-- Vitrine de serviços -->
+      <section class="card-servicos">
+        <h2>Nossos serviços</h2>
+
+        <p id="mensagem-servicos" class="mensagem-secao" role="status" aria-live="polite">
+          Carregando serviços...
+        </p>
+
+        <div id="lista-servicos" class="grid-servicos" hidden></div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p>© 2026 FoxArena - Sistema de Agendamento</p>
+    </footer>
+
+    <script type="module" src="./assets/js/paginas/index.js"></script>
+    <script type="module" src="assets/js/componentes/logout.js"></script>
+  </body>
+</html>
